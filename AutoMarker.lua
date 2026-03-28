@@ -278,7 +278,7 @@ end
 
 local function AM_UnitPopup_HideButtons()
   local dropdownMenu = _G[UIDROPDOWNMENU_INIT_MENU];
-
+  if not dropdownMenu or not dropdownMenu.which or not UnitPopupMenus[dropdownMenu.which] then return end
   for index, value in ipairs(UnitPopupMenus[dropdownMenu.which]) do
     if ( strsub(value, 1, 12)  == "RAID_TARGET_" ) then
       UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 1;
