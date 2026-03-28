@@ -289,7 +289,9 @@ UnitPopup_HideButtons = PostHookFunction(UnitPopup_HideButtons,AM_UnitPopup_Hide
 
 local function AM_UnitPopup_OnClick()
   local dropdownFrame = getglobal(UIDROPDOWNMENU_INIT_MENU);
+  if not dropdownFrame then return end
   local button = this.value;
+  if not button then return end
   local unit = dropdownFrame.unit;
 
   if ( strsub(button, 1, 12) == "RAID_TARGET_" and button ~= "RAID_TARGET_ICON" ) then
